@@ -1,0 +1,60 @@
+
+
+.app-page-navigator {
+    display: flex;
+    justify-content: center;
+    color: #67eda3;
+
+    button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        // border: solid 2px white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        margin: 0 20px;
+        cursor: pointer;
+        position: relative;
+
+        background: #896af8;
+        color: white;
+        transition: all 300ms ease;
+
+
+        &:before{
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            top: 0;
+            height: 100%;
+            background-color: white;
+            opacity: 0.2;
+            filter: blur(4px);
+            transition: all 300ms ease;
+        }
+
+
+        &:hover, &:active, &.active{
+            background: #6a52c0;
+            color: white;
+            transition: all 300ms ease;
+
+            &:before{
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: all 300ms ease;
+            }
+
+        }
+
+    }
+
+}

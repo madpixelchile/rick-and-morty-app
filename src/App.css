@@ -1,3 +1,18 @@
+
+body{
+  background: #1f2c4f;
+}
+
+h1{
+  color: #67eda3;
+  padding: 20px 0;
+  text-shadow: 0px 0px 19px #389361;
+}
+
+*:focus {
+  outline: none;
+}
+
 .App {
   text-align: center;
 }

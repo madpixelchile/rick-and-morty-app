@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+
 import './App.css';
+import './assets/scss/grid.scss';
+
+import Modal from './components/Modal';
+import CharacterList from './components/CharacterList';
 
 function App() {
+
+  const [modalCont, setModalCont] = useState([]);
+  const [modalState, setModalState] = useState(false);
+
+  function handleFromInnerModalClose(){
+    setModalState(false);
+  }
+
+  function activeModalState(modalData){
+    setModalState(true);
+    setModalCont(modalData)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>Rick & Morty APP</h1>
+        
+        <CharacterList useModal={activeModalState}></CharacterList>
+        <Modal activeModal={modalState} closeModal={handleFromInnerModalClose}>
+            <img className={`app-modal_img`} src={modalCont.image} alt={modalCont.name}/>
+            <div>
+                <h4>{modalCont.name}</h4>
+                {/* <p>{modalCont.origin['name'] ? 'Origin: ' + modalCont.origin['name'] : ''}</p> */}
+                {/* <p>{modalCont.location['name'] ? 'Location: ' + modalCont.location['name'] : ''}</p> */}
+                <p>Created:  {modalCont.created}</p>
+                <p>Gender:   {modalCont.gender}</p>
+            </div>
+        </Modal>
     </div>
   );
 }
